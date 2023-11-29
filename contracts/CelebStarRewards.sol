@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
+
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
@@ -8,7 +9,7 @@ import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 
 import "./OracleClient/IOracleClient.sol";
 
-contract CelebStarRewards is Ownable {
+contract CelebStarRewards is Ownable(msg.sender) {
     using SafeMath for uint256;
     uint256 public nextRewardId = 1;
     uint256 public availableRewardFunds = 0;

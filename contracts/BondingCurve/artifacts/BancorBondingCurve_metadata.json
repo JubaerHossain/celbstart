@@ -1,0 +1,169 @@
+{
+	"compiler": {
+		"version": "0.8.20+commit.a1b79de6"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_supply",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_reserveBalance",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint32",
+						"name": "_reserveRatio",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_depositAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "calculatePurchaseReturn",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_supply",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_reserveBalance",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint32",
+						"name": "_reserveRatio",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_sellAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "calculateSaleReturn",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "version",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"calculatePurchaseReturn(uint256,uint256,uint32,uint256)": {
+					"details": "given a continuous token supply, reserve token balance, reserve ratio, and a deposit amount (in the reserve token), calculates the return for a given conversion (in the continuous token) Formula: Return = _supply * ((1 + _depositAmount / _reserveBalance) ^ (_reserveRatio / MAX_RESERVE_RATIO) - 1)",
+					"params": {
+						"_depositAmount": "deposit amount, in reserve token",
+						"_reserveBalance": "total reserve token balance",
+						"_reserveRatio": "reserve ratio, represented in ppm, 1-1000000",
+						"_supply": "continuous token total supply"
+					},
+					"returns": {
+						"_0": "purchase return amount"
+					}
+				},
+				"calculateSaleReturn(uint256,uint256,uint32,uint256)": {
+					"details": "given a continuous token supply, reserve token balance, reserve ratio and a sell amount (in the continuous token), calculates the return for a given conversion (in the reserve token) Formula: Return = _reserveBalance * (1 - (1 - _sellAmount / _supply) ^ (1 / (_reserveRatio / MAX_RESERVE_RATIO)))",
+					"params": {
+						"_reserveBalance": "total reserve token balance",
+						"_reserveRatio": "constant reserve ratio, represented in ppm, 1-1000000",
+						"_sellAmount": "sell amount, in the continuous token itself",
+						"_supply": "continuous token total supply"
+					},
+					"returns": {
+						"_0": "sale return amount"
+					}
+				}
+			},
+			"title": "Bancor formula by Bancor",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/BondingCurve/BancorBondingCurve.sol": "BancorBondingCurve"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/utils/math/SafeMath.sol": {
+			"keccak256": "0x58b21219689909c4f8339af00813760337f7e2e7f169a97fe49e2896dcfb3b9a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ef8e012e946dec20e59f2d4446f4b44bb098f3fa8bac103b1b5112fff777447b",
+				"dweb:/ipfs/QmVTooKWcLkJ9W68yNX4MgdrbAKiAXwuRN9A7f4NkdcdtQ"
+			]
+		},
+		"contracts/BondingCurve/BancorBondingCurve.sol": {
+			"keccak256": "0x5665d0dbd25a97d23027868650f9225b99255a66cb88cb3a202af3b474e2c558",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://29da2aac27f20b4d3b8d5a958041476ea93299ef567141cb972c9bb0708b2d89",
+				"dweb:/ipfs/QmNMjNjZvnkrNvC52AXhSo57nLnZPUBPD6oweNHN5R137o"
+			]
+		},
+		"contracts/BondingCurve/Power.sol": {
+			"keccak256": "0x7199ba4c3a2e548a2413a04dfdc6e8c347025f309409765dfa4c8844c7392a23",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://67de2090c04fdd8e0d227ee8125caf1f0083e51ab108f8050f3a2f8200c90fd1",
+				"dweb:/ipfs/QmRNGLb7fCcFvJ91TWJhUWiHbvCfsuz6VgMWsjScnsAaDv"
+			]
+		}
+	},
+	"version": 1
+}

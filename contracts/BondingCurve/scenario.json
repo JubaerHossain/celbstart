@@ -1,0 +1,33 @@
+{
+  "accounts": {
+    "account{0}": "0xab82F9490c86B90a9762eef2cBD8dc7aA8142f69"
+  },
+  "linkReferences": {},
+  "transactions": [
+    {
+      "timestamp": 1701231603714,
+      "record": {
+        "value": "0",
+        "inputs": "()",
+        "parameters": [],
+        "name": "registerNewCelebrity",
+        "type": "function",
+        "to": "created{undefined}",
+        "from": "account{0}"
+      }
+    },
+    {
+      "timestamp": 1701231624176,
+      "record": {
+        "value": "0",
+        "inputs": "()",
+        "parameters": [],
+        "name": "requestRewardedCelebId",
+        "type": "function",
+        "to": "created{undefined}",
+        "from": "account{0}"
+      }
+    }
+  ],
+  "abis": {}
+}
